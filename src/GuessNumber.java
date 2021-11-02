@@ -1,58 +1,57 @@
-import java.util.Random;
 import java.util.Scanner;
-import java.security.SecureRandom;
-// Using SecureRandom because Intstream generates Integer(Int),not int,it's different,
-// int is a Type;Interger is a Object
+import java.util.Random;
 
-// There's a issue that the number randomly generated will lower than the Minimum
-
-public class GuessNumber {
+public class Main {
     public static void main(String[] args) {
         while (true) {
-            Scanner sc = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
             Random random = new Random();
 
+            //declaratives
+            int minnum;
+            int maxnum;
+            int guesstimelimit = 5;
+            int guessnumber;
+            int i = 0;
+
             System.out.println("Please enter the minimum number");
-            int GuessMinimum = sc.nextInt();
-            //get minimun int
+            minnum = scanner.nextInt();
+            //guess Minimum
 
             System.out.println("Please enter the maximum number");
-            int GuessMaximum = sc.nextInt();
-            //get maximum int
+            maxnum = scanner.nextInt();
+            //guess Maximum
 
-            SecureRandom rand = new SecureRandom();
-            int GuessGoal = rand.nextInt(GuessMaximum - GuessMinimum + 1) + GuessMinimum;
-            //generate a int between GuessMinimum and GuessMaximum
-            //Caution:Guess Minimun have to be outside of the nextInt function
+            if (minnum < maxnum) {
+                //Make sure Minimum will never be greater than Maximum
+                int Goal = random.nextInt(maxnum - minnum) + minnum;
 
-            if (GuessMinimum < GuessMaximum) {
-                //make sure Minimum won't be greater than Maximum
+                if (minnum < maxnum) {
+                    while (i < guesstimelimit) {
+                        System.out.println("Please guess your number");
 
-                int i = 0;
 
-                int GuessTimeLimit = 5;
+                        guessnumber = scanner.nextInt();
 
-                while (i <= (GuessTimeLimit - 1)) {
-                    int guess = sc.nextInt();
+                        if (guessnumber < Goal) {
+                            System.out.println("Too small");
+                        } else if (guessnumber > Goal) {
+                            System.out.println("Too big");
+                        } else {
+                            System.out.println("Bingo");
+                            break;
+                        }
 
-                    if (guess < GuessGoal) {
-                        System.out.println("Input number is too small");
-
-                    } else if (guess > GuessGoal) {
-                        System.out.println("Input number is too big");
-
-                    } else {
-                        System.out.println("You guessed the right number");
-                        System.out.println("Game Over,You won!");
-
-                        break;
+                        i++;
                     }
-
-                    i++;
-
+                    System.out.println("The true answer is "+Goal);
+                    System.out.println();
                 }
-                System.out.println("The true answer is " + GuessGoal);
+            }else {
+                System.out.println("minimum number can't be greater than maximum number");
+                System.out.println();
             }
         }
     }
 }
+
