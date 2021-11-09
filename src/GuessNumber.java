@@ -1,13 +1,13 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Main {
+public class GuessNumber {
     public static void main(String[] args) {
         while (true) {
             Scanner scanner = new Scanner(System.in);
             Random random = new Random();
 
-            //declaratives
+            //variables declaratives
             int minnum;
             int maxnum;
             int guesstimelimit = 5;
