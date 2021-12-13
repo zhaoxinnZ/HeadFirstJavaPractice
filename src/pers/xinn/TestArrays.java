@@ -1,3 +1,5 @@
+package pers.xinn;
+
 public class TestArrays {
     public static void main(String[] args) {
         String [] islands = new String[4];

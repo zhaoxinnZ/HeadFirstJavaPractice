@@ -1,11 +1,14 @@
 package pers.xinn;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
-public class DiceFunctions {
-    static int[] createRollerList(int length) {
+public interface DiceFunctions {
+    public static int[] createRollerList(int length) {
         Random random = new Random();
         int[] RollerList = new int[length];
         for (int i = 0; i < length; i++) {
@@ -13,8 +16,9 @@ public class DiceFunctions {
             RollerList[i] = dicenumber;
         }
         return RollerList;
+    }
 
-    }static void RollerCounter(int[] List) {
+    static void RollerCounter(int[] List) {
         int[] DiceList = new int[6];
         for (int i = 0; i < 6; i++) {
             int counter = 0;
@@ -28,7 +32,9 @@ public class DiceFunctions {
         for (int i = 0; i < 6; i++) {
             System.out.println("Point " + (i + 1) + " occurs " + DiceList[i] + " times ");
         }
-    }static int[] RollerCounterList(int[] List) {
+    }
+
+    static int[] RollerCounterList(int[] List) {
         int[] DiceList = new int[6];
         for (int i = 0; i < 6; i++) {
             int counter = 0;
@@ -40,36 +46,26 @@ public class DiceFunctions {
             DiceList[i] = counter;
         }
         return DiceList;
-    }static ArrayList getMaxPosition(int[] List) {
-        ArrayList arrayList = new ArrayList();
-        int[] pointlist = new int[6];
-        int max = Arrays.stream(List).max().getAsInt();
-        arrayList = CommonFunctions.SearchIndex(List, max);
-        return arrayList;
-    }static ArrayList getMinPosition(int[] List) {
-        ArrayList arrayList = new ArrayList();
-        int[] pointlist = new int[6];
-        int min = (int) Arrays.stream(pointlist).count();
+    }
 
-        arrayList = CommonFunctions.SearchIndex(List, min);
-        return arrayList;
-    }static void getBiggestDices(ArrayList arrlist){
-        ArrayList arrayList = new ArrayList();
-        ArrayList result = new ArrayList();
-        int max = 0;
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (max < arrayList.indexOf(i)){
-                max = arrayList.indexOf(i);
+    static void getBiggestDices(int[] List) {
+        int max = Arrays.stream(List).max().getAsInt();
+        for (int i = 0; i < List.length; i++) {
+            if (List[i] == max) {
+                System.out.println("The Biggest times is " + max + " and the points are " + (i + 1));
             }
         }
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.indexOf(i) == max){
-                result.add(i+1);
+    }
+
+     static void getSmallestDices(int[] List) {
+        int min = Arrays.stream(List).min().getAsInt();
+        for (int i = 0; i < List.length; i++) {
+            if (List[i] == min) {
+                System.out.println("The Smallest times is " + min + " and the points are " + (i + 1));
             }
-        }
-        for (int i = 0; i < result.size(); i++) {
-            System.out.println("The most frequently is "+(result.get(i)+" and the times are "+max));
         }
     }
 }
+
+
 

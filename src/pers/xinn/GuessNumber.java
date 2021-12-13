@@ -1,3 +1,5 @@
+package pers.xinn;
+
 import java.util.Scanner;
 import java.util.Random;
 

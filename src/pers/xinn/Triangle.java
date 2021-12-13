@@ -1,3 +1,5 @@
+package pers.xinn;
+
 class Triangle {
     double area;
     int height;

@@ -1,3 +1,5 @@
+package pers.xinn;
+
 public class StarLine {
     public static void main(String[] args) {
 

@@ -1,21 +1,19 @@
 package pers.xinn;
 
 public class ArrayPrinter {
-    public static void print(int[] a){
-        int row = a.length;
-        for (int i = 0; i < row; i++) {
-            System.out.print(a[i] + " ");
-        }
-    }
-    public static void print(int[][] a){
-        int row = a.length;
-        int column = a[0].length;
-        for (int i = 0; i < row; i++) {
-            System.out.print(a[i][0] + " ");
+    public static void printString(int[] dim1Array){
+        for (int value : dim1Array){
+            System.out.printf("%s ",value);
         }
         System.out.println();
-        for (int i = 0; i < column; i++) {
-            System.out.print(a[0][i] + " ");
+    }
+
+    public static void printString(int[][] dim2Array){
+        for (int[] row : dim2Array){
+            for (int value : row){
+                System.out.printf("%s ", value);
+            }
+            System.out.println();
         }
     }
 }
