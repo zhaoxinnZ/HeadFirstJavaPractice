@@ -1,6 +1,6 @@
 package pers.xinn.Prac20220110;
 
-public class BubbleSortDemon {
+public class BubbleSortDemo {
     public static void main(String[] args) {
 
 
@@ -28,15 +28,6 @@ public class BubbleSortDemon {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
-
-
-
-
-
-
-
-
-
 
 
 
