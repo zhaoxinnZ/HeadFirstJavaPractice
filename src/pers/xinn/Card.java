@@ -1,13 +1,13 @@
-package pers.xinn.PokerGame;
+package pers.xinn;
 
 import java.util.Random;
 
 public class Card {
 
-    public int Number;
-    public String Type;
-    public int CardNumber;
-    public String Name;
+    int Number;
+    String Type;
+    int CardNumber;
+    String Name;
 
     String[] CardType = {"Diamond","Club","Heart","Spade"};
 
@@ -32,6 +32,7 @@ public class Card {
     public String getCardType(){
         return Type;
     }
+
 
     @Override
     public String toString(){
